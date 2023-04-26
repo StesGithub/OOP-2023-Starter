@@ -10,6 +10,7 @@ public class DANI extends PApplet {
 	//String[] lines;
 	ArrayList<String> lineList = new ArrayList<>(); 
 	ArrayList<String> wordsList = new ArrayList<>(); 
+	ArrayList<Follow> followList = new ArrayList<>();
 
 	public void settings() {
 		size(1000, 1000);
@@ -47,13 +48,33 @@ public class DANI extends PApplet {
 		}
 	}
 
-	public void printModel(){
+	public void printModel() {
 		int totalWords = wordsList.size();
-		println("the number of words in this file is: " + totalWords);
-		for(String word: wordsList){
-			println(word);
+		println("The number of words in this file is: " + totalWords);
+	
+	
+		for (String word : wordsList) {
+			boolean found = false;
+			for (Follow follow : followList) {
+				if (follow.getWord().equals(word)) {
+					follow.setCount(follow.getCount() + 1);
+					found = true;
+					break;
+				}
+			}
+			if (!found) {
+				Follow follow = new Follow(word, 1);
+				followList.add(follow);
+			}
+		}
+	
+		for (Follow follow : followList) {
+			String word = follow.getWord();
+			int count = follow.getCount();
+			println( word + " frequency: " + count);
 		}
 	}
+	
 
 	float off = 0;
 
