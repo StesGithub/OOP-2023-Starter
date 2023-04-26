@@ -42,7 +42,9 @@ public class DANI extends PApplet {
 		for(int i = 0; i < lines.length; i++){
 			println(lines[i]);
 			String[] words = lines[i].split(" ");
+			
 			for (String word : words) {
+				word.toLowerCase(); //competely forgot to add toLowerCase & forgot to make 5 commits sorry Bryan (I also don't think I used it right)
 				wordsList.add(word); 
 			}
 		}
