@@ -24,6 +24,10 @@ public class Follow {
         this.word = word;
     }
 
-    
+    public Follow(String word, int count){
+
+        this.word = word;
+        this.count = count;
+    }
 
 }

@@ -22,6 +22,7 @@ public class DANI extends PApplet {
 
 	public void setup() {
 		colorMode(HSB);
+		loadFile();
 
        
 	}
@@ -29,7 +30,17 @@ public class DANI extends PApplet {
 	public void keyPressed() {
 
 	}
+	public void loadFile(){
+		String[] lines = loadStrings("small.txt");
+		println("there are" + lines.length + " lines in this file");
+		for(int i =0; i< lines.length; i++){
+			println(lines[i]);
+		}
+		
+		//split(line, ' ');
 
+
+	}
 	float off = 0;
 
 	public void draw() 
